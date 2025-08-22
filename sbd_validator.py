@@ -31,7 +31,7 @@ from google_helper_functions import *
 credentials_path = '/Users/samaguiar/Desktop/CRTL F WORKFLOW/client_secret_1009938022523-gurqd6lo7akldfc117970lbsiv0ei9ta.apps.googleusercontent.com.json'
 
 spreadsheet_name = "SBD Name and Date Validation v2"
-tab_name = "September 2025 A Batch 1.2"
+tab_name = "September 2025 A Batch 1.2 redo"
 FOLDER_ID = '1kGrB2VrHMMCKatcf2IKdtJqgjmIb3dsC'
 
 district_acronyms = {

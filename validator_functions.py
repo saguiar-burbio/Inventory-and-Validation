@@ -14,7 +14,7 @@ from tqdm import tqdm
 import subprocess
 
 def is_valid_filename(filename):
-    pattern = r"^(\d{6,7})_([A-Za-z0-9 .\-()&#']+)_BOE-(AGENDA-REG|AGENDA|SP|WS|REG|COM|EXE|FIN|PUB|PACK|FC)\d*_(\d{2}-\d{2}-\d{2,4})\.pdf$"
+    pattern = r"^(\d{6,7})_([A-Za-z0-9 .\-()&#']+)_BOE-(AGENDA-SP|AGENDA-WS|AGENDA-REG|AGENDA|SP|WS|REG|COM|EXE|FIN|PUB|PACK|FC)\d*_(\d{2}-\d{2}-\d{2,4})\.pdf$"
     return bool(re.match(pattern, filename))
 
 # Mapping of acronyms to full descriptions
