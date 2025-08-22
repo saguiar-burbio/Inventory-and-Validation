@@ -44,24 +44,29 @@ district_acronyms = {
 date_pattern = re.compile(
     r"""
     \b(
-        # Numeric dates: 8/12/25 or 08-12-2025 or 6.30.25
-        \d{1,2}[-/\.]\d{1,2}[-/\.]\d{2,4} |
-        
-        # Full ISO style: 2025-07-16
+        # 1. Weekday + Month + Day + Year: Tuesday, July 8, 2025
+        (?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*,?\s+
+        (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+
+        \d{1,2}(?:st|nd|rd|th)?,?\s+\d{2,4} |
+
+        # 2. Month Day, Year: July 16th, 2025 or Aug 06 2025
+        (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+
+        \d{1,2}(?:st|nd|rd|th)?,?\s+\d{2,4} |
+
+        # 3. Ordinal phrasing: the 14th day of July 2025
+        (?:the\s+)?\d{1,2}(?:st|nd|rd|th)?\s+day\s+of\s+
+        (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{2,4} |
+
+        # 4. ISO numeric: 2025-07-16
         \d{4}-\d{2}-\d{2} |
-        
-        # Month name with optional day suffix: July 16th, 2025 or Aug 06 2025
-        (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4} |
-        
-        # Weekday prefix: Wednesday, July 16th, 2025
-        (?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*,?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4} |
-        
-        # Day ordinal phrasing: 7th day of July 2025
-        \d{1,2}(?:st|nd|rd|th)?\s+day\s+of\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4}
+
+        # 5. Other numeric: 06-10-25, 6/24/2025, 6.30.25
+        \d{1,2}[-/\.]\d{1,2}[-/\.]\d{2,4}
     )\b
     """,
     re.IGNORECASE | re.VERBOSE
 )
+
 
 
 ##==== Authentication ======##

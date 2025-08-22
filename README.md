@@ -87,17 +87,26 @@ If running in the terminal, use the following code:
 
 ## Next Steps
 **Inventory**
+
 [] Rewrite the formulas into the program (will this cause issues with api?)
 
 **Validator**
+
 [] Similiarity Checker 
+
 [] Add HASH Checker for Team Documents
+
 [] Nonsearchable flag
+
 [] Corrupt Checker (double check that this is working?)
 
 **Validator and Inventory**
+
 [] Strategic Plans
+
 [] Spending Documents
+
 [] Budget Documents
+
 [] Bond Documents
 
