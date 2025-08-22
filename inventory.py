@@ -21,7 +21,7 @@ RANGE_NAME = 'Library Inventory!F2:H'
 TYPE_OF_DOCUMENT = "School Board Document"
 BP_LIBRARY_ID = '1SDBaPrUcbetlgkupSUmxMVEEjjgDFDIw' #SBD Library ID
 
-RUN_ALL = False #if true, will run entire library; if false, will only re-run last 6 months for speed
+RUN_ALL = True #if true, will run entire library; if false, will only re-run last 6 months for speed
 
 
 ##==== Main Functions ====##
@@ -86,7 +86,7 @@ def run_all():
 
     print(f"- {len(values)} rows updated in the sheet!")
     total_end = time.time()
-    print(f"  -- Total Time Taken for Inventory: {round(total_end - total_start,2)} minutes")
+    print(f"\n\nTotal Time Taken for Inventory: {round(total_end - total_start,2)/60} minutes")
     print("\n# ============================== #\n")
 
 def quick_run():
@@ -172,7 +172,7 @@ def quick_run():
 
     print(f"- {len(values)} rows updated in the sheet!")
     total_end = time.time()
-    print(f"  -- Total Time Taken for Inventory: {round(total_end - total_start,2)/60} minutes")
+    print(f"  -- Total Time Taken for Inventory: {round((total_end - total_start)/60,2)} minutes")
     print("\n# ============================== #\n")
 
 

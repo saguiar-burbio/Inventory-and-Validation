@@ -83,3 +83,25 @@ def list_all_files_recursive(parent_id, drive_service, FOLDERS_TO_SKIP):
 
     return all_files
 
+def list_all_files_validator(folder_id, drive_service):
+    """
+    List all files in a Google Drive folder with useful metadata
+    """
+    files = []
+    page_token = None
+    query = f"'{folder_id}' in parents and trashed = false"
+
+    while True:
+        response = drive_service.files().list(
+            q=query,
+            fields="nextPageToken, files(id, name, mimeType, size, webViewLink)",
+            pageToken=page_token
+        ).execute()
+
+        files.extend(response.get("files", []))
+        page_token = response.get("nextPageToken", None)
+        if page_token is None:
+            break
+
+    return files
+
